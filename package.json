@@ -1,0 +1,61 @@
+{
+  "name": "web-project-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate project for frontend applications.",
+  "main": "index.ts",
+  "author": "Norbert Lestyan <raven@itraven.com>",
+  "license": "MIT",
+  "prettier": {
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "tabWidth": 4,
+    "printWidth": 120,
+    "quoteProps": "preserve",
+    "trailingComma": "es5",
+    "singleQuote": false
+  },
+  "scripts": {
+      "dotnet": "cross-env ASPNETCORE_ENVIRONMENT=Development dotnet run --urls=http://localhost:5554 --project Web",
+      "dotnet:watch": "cross-env ASPNETCORE_ENVIRONMENT=Development dotnet watch run --urls=http://localhost:5554 --project Web",
+      "start": "cross-env NODE_ENV=development webpack serve --config=config/webpack/webpack.dev.config.ts",
+
+      "_clean-dist": "rimraf wwwroot/*",
+      "_build": "yarn run _clean-dist && cross-env NODE_ENV=production webpack --mode production --config=config/webpack/webpack.prod.config.ts",
+      "_clean-publish": "rimraf publish/*",
+      "_dotnet:publish": "dotnet publish --configuration Release --output publish",
+      "publish:site": "yarn run _clean-publish && yarn run _build && yarn run _dotnet:publish"
+  },
+  "devDependencies": {
+    "@types/mini-css-extract-plugin": "^2.4.0",
+    "@types/node": "^16.11.10",
+    "@types/optimize-css-assets-webpack-plugin": "^5.0.4",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@types/webpack-dev-server": "^4.5.0",
+    "autoprefixer": "^10.4.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "file-loader": "^6.2.0",
+    "image-webpack-loader": "^8.0.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "postcss": "^8.4.4",
+    "postcss-import": "^14.0.2",
+    "postcss-loader": "^6.2.1",
+    "sass": "^1.43.5",
+    "sass-loader": "^12.3.0",
+    "tailwindcss": "^2.2.19",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0",
+    "webpack-manifest-plugin": "^4.0.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
