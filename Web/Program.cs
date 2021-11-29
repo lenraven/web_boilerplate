@@ -1,11 +1,9 @@
-using Microsoft.Extensions.DependencyInjection.Extensions;
-
-using Web.Services;
+using Web.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
-builder.Services.TryAddSingleton<ManifestRevFileVersionProvider>();
+builder.Services.AddAssetManifest("manifest-rev.json");
 
 var app = builder.Build();
 

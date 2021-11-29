@@ -1,5 +1,4 @@
 ﻿@page
-@using Web.Extensions
 @model Web.Pages.Index
 
 @{
@@ -11,12 +10,12 @@
 <html lang="en">
     <head>
         <title>Web Boilerplate</title>
-        <link rel="stylesheet" href="@Url.StaticContentVersioned("~/css/main.css")"/>
+        <link rel="stylesheet" versioned-href="~/css/main.css"/>
     </head>
     <body>
-    <div id="container">
-    </div>
-        <script type="text/javascript" src="@Url.StaticContentVersioned("~/js/vendor.js")"></script>
-        <script type="text/javascript" src="@Url.StaticContentVersioned("~/js/main.js")"></script>
+        <div id="container">
+        </div>
+        <script type="text/javascript" versioned-src="~/js/vendor.js"></script>
+        <script type="text/javascript" versioned-src="~/js/main.js"></script>
     </body>
 </html>
